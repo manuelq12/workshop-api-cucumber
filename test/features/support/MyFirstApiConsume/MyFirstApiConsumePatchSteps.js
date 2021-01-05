@@ -1,15 +1,11 @@
 const agent = require('superagent');
 const { expect } = require('chai');
-const {Before, Given, When, Then } = require("cucumber");
+const {When, Then } = require("cucumber");
 
-Before(function () {
+When("we consume a PATCH Service with query parameters", async function() {
     this.query = {
         name: 'PATCH Query'
     };
-});
-
-
-When("we consume a PATCH Service with query parameters", async function() {
     this.response = await agent.patch(`${this.url}/patch`).query(this.query);
 });
 

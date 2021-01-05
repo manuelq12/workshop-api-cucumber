@@ -1,14 +1,12 @@
 const agent = require('superagent');
 const { expect } = require('chai');
-const {Before, Given, When, Then } = require("cucumber");
+const {When, Then } = require("cucumber");
 
-Before(function () {
+When("we consume a PUT Service with query parameters", async function() {
     this.query = {
         name: 'PUT Query'
     };
-});
 
-When("we consume a PUT Service with query parameters", async function() {
     this.response = await agent.put(`${this.url}/put`).query(this.query);
 });
 

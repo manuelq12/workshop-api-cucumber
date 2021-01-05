@@ -1,14 +1,6 @@
 const agent = require('superagent');
 const { expect } = require('chai');
-const {Before, Given, When, Then } = require("cucumber");
-
-Before(function () {
-    this.query = {
-        name: 'John',
-        age: '31',
-        city: 'New York'
-      };
-});
+const { When, Then } = require("cucumber");
 
 
 When("we consume a GET Service", async function() {
@@ -20,6 +12,12 @@ Then("the response must contain a property {string}", function(property) {
 });
 
 When("we consume a GET Service with query parameters", async function() {
+    this.query = {
+        name: 'John',
+        age: '31',
+        city: 'New York'
+      };
+
     this.response = await agent.get(`${this.url}/get`).query(this.query);
 });
 
