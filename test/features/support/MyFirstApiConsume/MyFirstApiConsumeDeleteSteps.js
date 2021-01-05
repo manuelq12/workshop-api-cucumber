@@ -1,12 +1,12 @@
 const agent = require('superagent');
 const { expect } = require('chai');
-const { Given, When, Then } = require("cucumber");
+const { Given, When, Then } = require('cucumber');
 
 Given("a REST API url", function() {
     this.url = 'https://httpbin.org';
 });
 
-When("we consume a DELETE Service with query parameters", async function() {
+When("the user consumes a DELETE Service with query parameters", async function() {
     this.query = {
         name: 'DELETE Query'
     };
