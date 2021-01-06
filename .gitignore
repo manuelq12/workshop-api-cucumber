@@ -153,3 +153,7 @@ $RECYCLE.BIN/
 
 ## Reports ##
 report
+
+
+## Cucumber JSON ##
+cucumber-test-json

@@ -16,4 +16,3 @@ let options = {
     };
 
     reporter.generate(options);
-    
