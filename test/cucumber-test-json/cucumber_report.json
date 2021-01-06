@@ -1,0 +1,384 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "My First Api Consume",
+    "line": 1,
+    "id": "my-first-api-consume",
+    "tags": [],
+    "uri": "test\\features\\MyFirstApiConsume.feature",
+    "elements": [
+      {
+        "id": "my-first-api-consume;verify-get-service",
+        "keyword": "Scenario",
+        "line": 2,
+        "name": "Verify GET Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 3,
+            "name": "a training REST API url \"https://httpbin.org\"",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeDeleteSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 4,
+            "name": "the user consumes a GET Service",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeGetSteps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 506000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "the response should contain a OK status",
+            "match": {
+              "location": "test\\features\\support\\common\\statusCode.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "the response must contain a property \"origin\"",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeGetSteps.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "my-first-api-consume;verify-get-service-with-query",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Verify GET Service with Query",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "a training REST API url \"https://httpbin.org\"",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeDeleteSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "the user consumes a GET Service with query parameters",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeGetSteps.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 326000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the response should contain a OK status",
+            "match": {
+              "location": "test\\features\\support\\common\\statusCode.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the response must contain the query values",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeGetSteps.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "my-first-api-consume;verify-head-service",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Verify HEAD Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "a training REST API url \"https://httpbin.org\"",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeDeleteSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "the user consumes a HEAD Service",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstAPIConsumeHeadStep.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 391000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the response should contain a OK status",
+            "match": {
+              "location": "test\\features\\support\\common\\statusCode.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the response body must be empty",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstAPIConsumeHeadStep.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "my-first-api-consume;verify-patch-service-with-query",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Verify PATCH Service with Query",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "a training REST API url \"https://httpbin.org\"",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeDeleteSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "the user consumes a PATCH Service with query parameters",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumePatchSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 386000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "the response should contain a OK status",
+            "match": {
+              "location": "test\\features\\support\\common\\statusCode.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the response must contain the query name",
+            "match": {
+              "location": "test\\features\\support\\common\\query.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "my-first-api-consume;verify-put-service-with-query",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "Verify PUT Service with Query",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 27,
+            "name": "a training REST API url \"https://httpbin.org\"",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeDeleteSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "the user consumes a PUT Service with query parameters",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumePutSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 308000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "the response should contain a OK status",
+            "match": {
+              "location": "test\\features\\support\\common\\statusCode.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "the response must contain the query name",
+            "match": {
+              "location": "test\\features\\support\\common\\query.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "my-first-api-consume;verify-delete-service-with-query",
+        "keyword": "Scenario",
+        "line": 32,
+        "name": "Verify DELETE Service with Query",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 33,
+            "name": "a training REST API url \"https://httpbin.org\"",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeDeleteSteps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 34,
+            "name": "the user consumes a DELETE Service with query parameters",
+            "match": {
+              "location": "test\\features\\support\\MyFirstApiConsume\\MyFirstApiConsumeDeleteSteps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 329000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 35,
+            "name": "the response should contain a OK status",
+            "match": {
+              "location": "test\\features\\support\\common\\statusCode.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "the response must contain the query name",
+            "match": {
+              "location": "test\\features\\support\\common\\query.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

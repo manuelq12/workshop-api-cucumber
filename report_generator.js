@@ -2,7 +2,7 @@ const reporter = require('cucumber-html-reporter');
 
 let options = {
         theme: 'bootstrap',
-        jsonFile: 'test/report/cucumber_report.json',
+        jsonFile: 'test/cucumber-test-json/cucumber_report.json',
         output: 'test/report/cucumber_report.html',
         reportSuiteAsScenarios: true,
         scenarioTimestamp: true,
@@ -16,3 +16,4 @@ let options = {
     };
 
     reporter.generate(options);
+    
