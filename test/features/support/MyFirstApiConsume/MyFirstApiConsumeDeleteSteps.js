@@ -1,18 +1,13 @@
 const agent = require('superagent');
-const { expect } = require('chai');
-const { Given, When, Then } = require('cucumber');
+const { Given, When } = require('cucumber');
 
-Given("a REST API url", function() {
-    this.url = 'https://httpbin.org';
+Given('a training REST API url {string}', function (training_url) {
+    this.url = training_url;
 });
 
-When("the user consumes a DELETE Service with query parameters", async function() {
+When('the user consumes a DELETE Service with query parameters', async function () {
     this.query = {
         name: 'DELETE Query'
     };
     this.response = await agent.delete(`${this.url}/delete`).query(this.query);
-});
-
-Then("the response must contain the DELETE query name", function() {
-    expect(this.response.body.args.name).to.eql(this.query.name);
 });
