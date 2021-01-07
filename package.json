@@ -4,7 +4,8 @@
   "description": "This is a Workshop about Api Testing in JavaScript with Cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test -f node_modules/cucumber-pretty"
+    "test": "npm run clean && cucumber-js test -f node_modules/cucumber-pretty -f json:test/cucumber-test-json/cucumber_report.json",
+    "clean": "rm -rf test/cucumber-test-json && mkdir test/cucumber-test-json"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.3.0",
     "cucumber-pretty": "^6.0.0",
     "http-status-codes": "^2.1.4"
   },
