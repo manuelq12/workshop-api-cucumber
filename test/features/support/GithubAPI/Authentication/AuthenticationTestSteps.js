@@ -3,13 +3,15 @@ const { Given, When, Then } = require('cucumber');
 const { expect } = require('chai');
 
 const urlBase = 'https://api.github.com';
-const githubUserName = 'manuelq12';
-const repository = 'workshop-api-cucumber';
+let githubUserName;
+let repository;
 
-Given('a Github username', () => {
+Given('a Github username {string}', (username) => {
+  githubUserName = username;
 });
 
-Given('the repository of the Github user', () => {
+Given('the repository of the Github user {string}', (repos) => {
+  repository = repos;
 });
 
 When('the user tries to retrieve its repository with OAuth2 Tokens by Header', async function () {
