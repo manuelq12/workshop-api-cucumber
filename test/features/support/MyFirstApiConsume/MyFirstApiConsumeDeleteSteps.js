@@ -1,8 +1,8 @@
 const agent = require('superagent');
 const { Given, When } = require('cucumber');
 
-Given('a training REST API url {string}', function (TrainingUrl) {
-  this.url = TrainingUrl;
+Given('a training REST API url {string}', function (trainingUrl) {
+  this.url = trainingUrl;
 });
 
 When('the user consumes a DELETE Service with query parameters', async function () {
