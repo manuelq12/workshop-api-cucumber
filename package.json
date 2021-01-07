@@ -4,7 +4,8 @@
   "description": "This is a Workshop about Api Testing in JavaScript with Cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test -f node_modules/cucumber-pretty -f json:test/cucumber-test-json/cucumber_report.json"
+    "test": "npm run clean && cucumber-js test -f node_modules/cucumber-pretty -f json:test/cucumber-test-json/cucumber_report.json",
+    "clean": "rm -rf test/cucumber-test-json && mkdir test/cucumber-test-json"
   },
   "repository": {
     "type": "git",
