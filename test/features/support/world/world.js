@@ -7,6 +7,7 @@ class World {
     this.previous_response = null;
     this.query = null;
     this.body = null;
+    this.username = null;
   }
 }
 

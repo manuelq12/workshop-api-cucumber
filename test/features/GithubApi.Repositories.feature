@@ -1,16 +1,13 @@
 Feature: Github Api Users & Repositories Test
-    Scenario Outline: Obtain Users information
-        Given a Github account like "<username>"
+    Scenario: Obtain Users information
+        Given a Github account like 'aperdomob'
         When a request is used to retrieve the users information
         Then the response should contain a OK status
-        And the response must contain users name "<name>"
-        And the response also must contain users company "<company>"
-        And the response also must contain users location "<location>"
+        And the response must contain users property 'name' 'Alejandro Perdomo'
+        And the response must contain users property 'company' 'PSL'
+        And the response must contain users property 'location' 'Colombia'
 
-        Examples:
-        | username  |        name       | company | location |
-        | aperdomob | Alejandro Perdomo |   PSL   | Colombia |
-        
+
     Scenario Outline: Obtain Repositories information and files
         Given a Github account like "<username>"
         And the account information response
@@ -19,16 +16,16 @@ Feature: Github Api Users & Repositories Test
         And the response must contain the repository full-name "<username>/<repository>"
         And the response also must contain the repository status <status>
         And the response also must contain the repository description "<description>"
-            When a request is used to download "<repository>" repository
-            Then the response should contain a OK status
-            And the response content-type must be a zip
-            When a request is used to retrieve "<repository>" repository README.md info
-            Then the response should contain a OK status
-            And the README.md info must contain a subset with its path and SHA
-                When a request is used to download repository README.md
-                And the README.md is calculated
-                Then the response should contain a OK status
-                And the README.md MD5 calculated and the one we previously had must be equal
+        When a request is used to download "<repository>" repository
+        Then the response should contain a OK status
+        And the response content-type must be a zip
+        When a request is used to retrieve "<repository>" repository README.md info
+        Then the response should contain a OK status
+        And the README.md info must contain a subset with its path and SHA
+        When a request is used to download repository README.md
+        And the README.md is calculated
+        Then the response should contain a OK status
+        And the README.md MD5 calculated and the one we previously had must be equal
 
 
 

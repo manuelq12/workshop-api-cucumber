@@ -8,35 +8,12 @@ chai.use(chaiSubset);
 const { expect } = chai;
 
 const urlBase = 'https://api.github.com';
-let githubUserName;
 const fileSha = 'b9900ca9b34077fe6a8f2aaa37a173824fa9751d';
 const md5ReadMe = '0e62b07144b4fa997eedb864ff93e26b';
 let md5FileResponse;
 
-Given('a Github account like {string}', (username) => {
-  githubUserName = username;
-});
-
-When('a request is used to retrieve the users information', async function () {
-  this.response = await agent.get(`${urlBase}/users/${githubUserName}`)
-    .auth('token', process.env.ACCESS_TOKEN)
-    .set('User-Agent', 'agent');
-});
-
-Then('the response must contain users name {string}', function (name) {
-  expect(this.response.body.name).equal(name);
-});
-
-Then('the response also must contain users company {string}', function (company) {
-  expect(this.response.body.company).equal(company);
-});
-
-Then('the response also must contain users location {string}', function (location) {
-  expect(this.response.body.location).equal(location);
-});
-
 Given('the account information response', async function () {
-  this.previous_response = await agent.get(`${urlBase}/users/${githubUserName}`)
+  this.previous_response = await agent.get(`${urlBase}/users/${this.username}`)
     .auth('token', process.env.ACCESS_TOKEN)
     .set('User-Agent', 'agent');
 });
@@ -62,7 +39,7 @@ Then('the response also must contain the repository description {string}', funct
 });
 
 When('a request is used to download {string} repository', async function (repository) {
-  this.response = await agent.get(`${urlBase}/repos/${githubUserName}/${repository}/zipball`)
+  this.response = await agent.get(`${urlBase}/repos/${this.username}/${repository}/zipball`)
     .auth('token', process.env.ACCESS_TOKEN)
     .set('User-Agent', 'agent');
 });
@@ -72,7 +49,7 @@ Then('the response content-type must be a zip', function () {
 });
 
 When('a request is used to retrieve {string} repository README.md info', async function (repository) {
-  this.response = await agent.get(`${urlBase}/repos/${githubUserName}/${repository}/contents`)
+  this.response = await agent.get(`${urlBase}/repos/${this.username}/${repository}/contents`)
     .auth('token', process.env.ACCESS_TOKEN)
     .set('User-Agent', 'agent');
 
