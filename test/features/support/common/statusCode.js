@@ -5,3 +5,7 @@ const { Then } = require('cucumber');
 Then('the response should contain a OK status', function () {
   expect(this.response.status).to.equal(statusCode.OK);
 });
+
+Then('the response should contain a NO CONTENT status', function () {
+  expect(this.response.status).to.equal(statusCode.NO_CONTENT);
+});
