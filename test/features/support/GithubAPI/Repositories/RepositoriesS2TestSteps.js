@@ -29,16 +29,20 @@ When('a request is used to retrieve a users repository information like {string}
   this.body = this.response.body.find((element) => element.name === repository);
 });
 
-Then('the response must contain the repository full-name {string}', function (fullName) {
-  expect(this.body.full_name).equal(fullName);
-});
-
-Then('the response also must contain the repository status {word}', function (status) {
-  expect(String(this.body.private)).equal(status);
-});
-
-Then('the response also must contain the repository description {string}', function (description) {
-  expect(this.body.description).equal(description);
+Then('the response must contain repository property {string} {string}', function (propertyName, expectedValue) {
+  switch (propertyName) {
+    case 'full-name':
+      expect(this.body.full_name).equal(expectedValue);
+      break;
+    case 'status':
+      expect(String(this.body.private)).equal(expectedValue);
+      break;
+    case 'description':
+      expect(this.body.description).equal(expectedValue);
+      break;
+    default:
+      break;
+  }
 });
 
 When('a request is used to download {string} repository', async function (repository) {

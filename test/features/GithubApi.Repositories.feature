@@ -8,27 +8,21 @@ Feature: Github Api Users & Repositories Test
         And the response must contain users property 'location' 'Colombia'
 
 
-    Scenario Outline: Obtain Repositories information and files
-        Given a Github account like "<username>"
+    Scenario: Obtain Repositories information and files
+        Given a Github account like 'aperdomob'
         And the account information response
-        When a request is used to retrieve a users repository information like "<repository>"
+        When a request is used to retrieve a users repository information like 'jasmine-awesome-report'
         Then the response should contain a OK status
-        And the response must contain the repository full-name "<username>/<repository>"
-        And the response also must contain the repository status <status>
-        And the response also must contain the repository description "<description>"
-        When a request is used to download "<repository>" repository
+        And the response must contain repository property 'full-name' 'aperdomob/jasmine-awesome-report'
+        And the response must contain repository property 'status' 'false'
+        And the response must contain repository property 'description' 'An awesome html report for Jasmine'
+        When a request is used to download 'jasmine-awesome-report' repository
         Then the response should contain a OK status
         And the response content-type must be a zip
-        When a request is used to retrieve "<repository>" repository README.md info
+        When a request is used to retrieve 'jasmine-awesome-report' repository README.md info
         Then the response should contain a OK status
         And the README.md info must contain a subset with its path and SHA
         When a request is used to download repository README.md
         And the README.md is calculated
         Then the response should contain a OK status
         And the README.md MD5 calculated and the one we previously had must be equal
-
-
-
-        Examples:
-        | username  |       repository       |  status  |            description             |
-        | aperdomob | jasmine-awesome-report |   false  | An awesome html report for Jasmine |
