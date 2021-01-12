@@ -1,4 +1,4 @@
-const agent = require('superagent');
+const agent = require('../../../../agent/Agent');
 const { Given, When, Then } = require('cucumber');
 const chai = require('chai');
 const chaiSubset = require('chai-subset');
@@ -13,9 +13,7 @@ Given('a Github account like {string}', function (username) {
 });
 
 When('a request is used to retrieve the users information', async function () {
-  this.response = await agent.get(`${urlBase}/users/${this.username}`)
-    .auth('token', process.env.ACCESS_TOKEN)
-    .set('User-Agent', 'agent');
+  this.response = await agent.getRequest(`${urlBase}/users/${this.username}`)
 });
 
 Then('the response must contain users property {string} {string}', function (propertyName, expectedValue) {

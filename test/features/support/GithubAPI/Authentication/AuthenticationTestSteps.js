@@ -5,6 +5,7 @@ const { expect } = require('chai');
 const urlBase = 'https://api.github.com';
 let githubUserName;
 let repository;
+const description = 'This is a Workshop about Api Testing in JavaScript with Cucumber';
 
 Given('a Github username {string}', (username) => {
   githubUserName = username;
@@ -27,5 +28,5 @@ When('the user tries to retrieve its repository with OAuth2 Tokens by Parameter'
 });
 
 Then('the response must contain the repository description', function () {
-  expect(this.response.body.description).equal('This is a Workshop about Api Testing in JavaScript with Cucumber');
+  expect(this.response.body.description).equal(description);
 });
