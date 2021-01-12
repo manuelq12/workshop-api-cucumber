@@ -8,8 +8,11 @@ chai.use(chaiSubset);
 const { expect } = chai;
 
 const urlBase = 'https://api.github.com';
-const fileSha = 'b9900ca9b34077fe6a8f2aaa37a173824fa9751d';
-const md5ReadMe = '0e62b07144b4fa997eedb864ff93e26b';
+const enumValues = {
+  fileSha: 'b9900ca9b34077fe6a8f2aaa37a173824fa9751d',
+  md5ReadMe: '0e62b07144b4fa997eedb864ff93e26b',
+  content_type: 'application/zip'
+};
 let md5FileResponse;
 
 Given('the account information response', async function () {
@@ -45,7 +48,7 @@ When('a request is used to download {string} repository', async function (reposi
 });
 
 Then('the response content-type must be a zip', function () {
-  expect(this.response.header['content-type']).to.equal('application/zip');
+  expect(this.response.header['content-type']).to.equal(enumValues.content_type);
 });
 
 When('a request is used to retrieve {string} repository README.md info', async function (repository) {
@@ -59,7 +62,7 @@ When('a request is used to retrieve {string} repository README.md info', async f
 Then('the README.md info must contain a subset with its path and SHA', function () {
   expect(this.body).to.containSubset({
     path: 'README.md',
-    sha: fileSha
+    sha: enumValues.fileSha
   });
 });
 
@@ -74,5 +77,5 @@ When('the README.md is calculated', function () {
 });
 
 Then('the README.md MD5 calculated and the one we previously had must be equal', () => {
-  expect(md5FileResponse).to.equal(md5ReadMe);
+  expect(md5FileResponse).to.equal(enumValues.md5ReadMe);
 });
