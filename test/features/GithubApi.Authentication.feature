@@ -3,7 +3,7 @@ Feature: Github Api Authentication Test
         Given a Github username "<username>"
         And the repository of the Github user "<repository>"
         When the user tries to retrieve its repository with OAuth2 Tokens by Header
-        Then the response should contain a 200 status code
+        Then the response should contain a 'OK' status
         And the response must contain the repository description
 
         Examples:
@@ -14,7 +14,7 @@ Feature: Github Api Authentication Test
         Given a Github username "<username>"
         And the repository of the Github user "<repository>"
         When the user tries to retrieve its repository with OAuth2 Tokens by Parameter
-        Then the response should contain a 200 status code
+        Then the response should contain a 'OK' status
         And the response must contain the repository description
 
         Examples:
