@@ -1,8 +1,12 @@
-const agent = require('superagent');
+const defaults = require('superagent-defaults');
+
+const agent = defaults();
+
 const { Given, When, Then } = require('cucumber');
 const chai = require('chai');
 const chaiSubset = require('chai-subset');
 const md5 = require('md5');
+const { setAuthorizationHeaders } = require('../../helpers/helpers');
 
 chai.use(chaiSubset);
 const { expect } = chai;
@@ -16,15 +20,12 @@ const enumValues = {
 let md5FileResponse;
 
 Given('the account information response', async function () {
-  this.previous_response = await agent.get(`${urlBase}/users/${this.username}`)
-    .auth('token', process.env.ACCESS_TOKEN)
-    .set('User-Agent', 'agent');
+  setAuthorizationHeaders(agent);
+  this.previous_response = await agent.get(`${urlBase}/users/${this.username}`);
 });
 
 When('a request is used to retrieve a users repository information like {string}', async function (repository) {
-  this.response = await agent.get(this.previous_response.body.repos_url)
-    .auth('token', process.env.ACCESS_TOKEN)
-    .set('User-Agent', 'agent');
+  this.response = await agent.get(this.previous_response.body.repos_url);
 
   this.body = this.response.body.find((element) => element.name === repository);
 });
@@ -46,9 +47,7 @@ Then('the response must contain repository property {string} {string}', function
 });
 
 When('a request is used to download {string} repository', async function (repository) {
-  this.response = await agent.get(`${urlBase}/repos/${this.username}/${repository}/zipball`)
-    .auth('token', process.env.ACCESS_TOKEN)
-    .set('User-Agent', 'agent');
+  this.response = await agent.get(`${urlBase}/repos/${this.username}/${repository}/zipball`);
 });
 
 Then('the response content-type must be a zip', function () {
@@ -56,9 +55,7 @@ Then('the response content-type must be a zip', function () {
 });
 
 When('a request is used to retrieve {string} repository README.md info', async function (repository) {
-  this.response = await agent.get(`${urlBase}/repos/${this.username}/${repository}/contents`)
-    .auth('token', process.env.ACCESS_TOKEN)
-    .set('User-Agent', 'agent');
+  this.response = await agent.get(`${urlBase}/repos/${this.username}/${repository}/contents`);
 
   this.body = this.response.body.find((element) => element.name === 'README.md');
 });
@@ -71,9 +68,7 @@ Then('the README.md info must contain a subset with its path and SHA', function 
 });
 
 When('a request is used to download repository README.md', async function () {
-  this.response = await agent.get(this.body.download_url)
-    .auth('token', process.env.ACCESS_TOKEN)
-    .set('User-Agent', 'agent');
+  this.response = await agent.get(this.body.download_url);
 });
 
 When('the README.md is calculated', function () {
