@@ -21,6 +21,7 @@ let md5FileResponse;
 
 Given('the account information response', async function () {
   setAuthorizationHeaders(agent);
+
   this.previous_response = await agent.get(`${urlBase}/users/${this.username}`);
 });
 
