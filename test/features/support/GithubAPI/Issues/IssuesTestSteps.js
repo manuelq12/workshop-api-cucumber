@@ -24,7 +24,8 @@ When('a request is used to create an issue in the accounts repository', async fu
 });
 
 Then('the issue should have been created', function () {
-  expect(this.response.body.id).to.not.equal('undefined');
+  /* eslint-disable no-unused-expressions */
+  expect(this.response.body.id).to.not.be.undefined;
   expect(this.response.body.title).to.equal(query.title);
   expect(this.response.body.body).to.equal(null);
 });

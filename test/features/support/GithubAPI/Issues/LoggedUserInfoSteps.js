@@ -25,6 +25,7 @@ When('a request is used to retrieve the accounts public repository information',
 });
 
 Then('the repository must exist', function () {
-  expect(this.body.full_name).to.not.equal('undefined');
+  /* eslint-disable no-unused-expressions */
+  expect(this.body.full_name).to.not.be.undefined;
   expect(this.body.owner.login).equal(this.username);
 });
