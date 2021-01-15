@@ -10,6 +10,9 @@ Then('the response should contain a {string} status', function (status) {
     case 'No-Content':
       expect(this.response.status).to.equal(statusCode.NO_CONTENT);
       break;
+    case 'Created':
+      expect(this.response.status).to.equal(statusCode.CREATED);
+      break;
     default:
       break;
   }
