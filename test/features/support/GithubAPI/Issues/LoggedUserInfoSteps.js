@@ -20,12 +20,12 @@ Then('at least one public repository is expected', function () {
 
 When('a request is used to retrieve the accounts public repository information', async function () {
   this.response = await agent.get(this.response.body.repos_url);
-
   this.body = this.response.body.shift();
 });
 
 Then('the repository must exist', function () {
   /* eslint-disable no-unused-expressions */
-  expect(this.body.full_name).to.not.be.undefined;
+  const er = /(\w\/\w)/;
+  expect(this.body.full_name).to.match(er);
   expect(this.body.owner.login).equal(this.username);
 });
