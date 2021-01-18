@@ -9,7 +9,7 @@ Feature: Github Api Create & Delete Gist Test
         And the response must contain gist property 'description'
         And the response must contain gist property 'public'
 
-    Scenario: Create & Delete Gist in the account
+    Scenario: Delete Gist in the account
         Given a Github account like 'manuelq12'
         When a request is used to delete a GIST from the account
         Then the response should contain a 'No-Content' status
