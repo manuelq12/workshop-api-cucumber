@@ -22,17 +22,5 @@ When('a request is used to retrieve the users information', async function () {
 });
 
 Then('the response must contain users property {string} {string}', function (propertyName, expectedValue) {
-  switch (propertyName) {
-    case 'name':
-      expect(this.response.body.name).equal(expectedValue);
-      break;
-    case 'company':
-      expect(this.response.body.company).equal(expectedValue);
-      break;
-    case 'location':
-      expect(this.response.body.location).equal(expectedValue);
-      break;
-    default:
-      break;
-  }
+  expect(this.response.body[propertyName]).equal(expectedValue);
 });

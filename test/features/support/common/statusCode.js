@@ -13,6 +13,9 @@ Then('the response should contain a {string} status', function (status) {
     case 'Created':
       expect(this.response.status).to.equal(statusCode.CREATED);
       break;
+    case 'Not-Found':
+      expect(this.response.status).to.equal(statusCode.NOT_FOUND);
+      break;
     default:
       break;
   }
