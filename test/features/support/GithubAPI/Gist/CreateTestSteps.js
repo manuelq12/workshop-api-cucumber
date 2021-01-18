@@ -45,14 +45,5 @@ When('a request is used to retrieve the Gist in the account', async function () 
 });
 
 Then('the response must contain gist property {string}', function (propertyName) {
-  switch (propertyName) {
-    case 'description':
-      expect(this.response.body.description).equal(newGist.description);
-      break;
-    case 'public':
-      expect(this.response.body.public).equal(newGist.public);
-      break;
-    default:
-      break;
-  }
+  expect(this.response.body[propertyName]).equal(newGist[propertyName]);
 });
