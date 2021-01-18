@@ -11,7 +11,8 @@ Feature: Github Api Create & Delete Gist Test
 
     Scenario: Delete Gist in the account
         Given a Github account like 'manuelq12'
-        When a request is used to delete a GIST from the account
+        When a request is used to retrieve the first Gist from the account
+        And a request is used to delete the GIST from the account
         Then the response should contain a 'No-Content' status
         When a request is used to retrieve the Gist in the account
         Then the response should contain a 'Not-Found' status
