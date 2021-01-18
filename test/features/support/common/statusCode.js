@@ -16,6 +16,9 @@ Then('the response should contain a {string} status', function (status) {
     case 'Not-Found':
       expect(this.response.status).to.equal(statusCode.NOT_FOUND);
       break;
+    case 'Moved-Permanently':
+      expect(this.response.status).to.equal(statusCode.MOVED_PERMANENTLY);
+      break;
     default:
       break;
   }
