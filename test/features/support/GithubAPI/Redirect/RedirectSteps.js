@@ -8,13 +8,13 @@ const { setAuthorizationHeaders } = require('../../helpers/helpers');
 let oldRepository;
 let newRepository;
 
-Given('a Github a repository old URL', () => {
+Given('a Github a repository old URL {string}', (oldURL) => {
   setAuthorizationHeaders(agent);
-  oldRepository = 'https://github.com/aperdomob/redirect-test';
+  oldRepository = oldURL;
 });
 
-Given('the Github repository new URL', () => {
-  newRepository = 'https://github.com/aperdomob/new-redirect-test';
+Given('the Github repository new URL {string}', (newURL) => {
+  newRepository = newURL;
 });
 
 When('a request is used to obtain information of the repository, with the old URL', async function () {
