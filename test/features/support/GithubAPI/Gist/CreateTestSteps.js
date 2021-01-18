@@ -56,7 +56,3 @@ Then('the response must contain gist property {string}', function (propertyName)
       break;
   }
 });
-
-When('a request is used to delete the GIST from the account', async function () {
-  this.response = await agent.delete(this.url);
-});
