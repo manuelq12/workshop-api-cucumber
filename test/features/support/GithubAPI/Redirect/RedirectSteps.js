@@ -25,7 +25,7 @@ When('a request is used to obtain information of the repository, with the old UR
   }
 });
 
-Then('the repository redirect information', function () {
+Then('the response must contain a header with the redirect url', function () {
   expect(this.response.response.headers.location).to.equal(newRepository);
 });
 

@@ -4,7 +4,7 @@ Feature: Github Api Redirect Test
         And the Github repository new URL 'https://github.com/aperdomob/new-redirect-test'
         When a request is used to obtain information of the repository, with the old URL
         Then the response should contain a 'Moved-Permanently' status
-        And the repository redirect information
+        And the response must contain a header with the redirect url
         When a request is used to retrieve the repository with the old URL
         Then the response should contain a 'OK' status
         And the response must contain a redirect to the new URL
