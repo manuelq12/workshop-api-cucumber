@@ -18,8 +18,8 @@ Then('at least one public repository is expected', function () {
   expect(this.response.body.public_repos).to.be.at.least(1);
 });
 
-When('a request is used to retrieve the accounts public repository information', async function () {
-  this.response = await agent.get(this.response.body.repos_url);
+When('a request is used to retrieve an account public repository information', async function () {
+  this.response = await agent.get(`${urlBase}/users/${this.username}/repos`);
   this.body = this.response.body.shift();
 });
 

@@ -15,7 +15,7 @@ When('a request is used to follow the account', async function () {
   this.response = await agent.put(`${urlBase}/user/following/${this.username}`);
 });
 
-When('a request is used to verify the account was followed', async function () {
+When('a request is used to verify this account was followed', async function () {
   this.response = await agent.get(`${urlBase}/user/following`);
 
   this.body = this.response.body.find((element) => element.login === this.username);

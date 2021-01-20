@@ -7,8 +7,7 @@ Feature: Github Api Users & Repositories Test
         And the response must contain users property 'company' 'PSL'
         And the response must contain users property 'location' 'Colombia'
 
-
-    Scenario: Obtain Repositories information and files
+    Scenario: Obtain Repositories information
         Given a Github account like 'aperdomob'
         And the account information response
         When a request is used to retrieve a users repository information like 'jasmine-awesome-report'
@@ -16,13 +15,23 @@ Feature: Github Api Users & Repositories Test
         And the response must contain repository property 'full-name' 'aperdomob/jasmine-awesome-report'
         And the response must contain repository property 'status' 'false'
         And the response must contain repository property 'description' 'An awesome html report for Jasmine'
-        When a request is used to download 'jasmine-awesome-report' repository
+    
+    Scenario: Download Repository
+        Given a Github account like 'aperdomob'
+        When a request is used to download 'jasmine-awesome-report' repository from this user
         Then the response should contain a 'OK' status
         And the response content-type must be a zip
+
+    Scenario: Verify Repository README.md info
+        Given a Github account like 'aperdomob'
         When a request is used to retrieve 'jasmine-awesome-report' repository README.md info
         Then the response should contain a 'OK' status
         And the README.md info must contain a subset with its path and SHA
-        When a request is used to download repository README.md
+    
+    Scenario: Download Repository README.md
+        Given a Github account like 'aperdomob'
+        When a request is used to retrieve 'jasmine-awesome-report' repository README.md info
+        And a request is used to download repository README.md
         And the README.md is calculated
         Then the response should contain a 'OK' status
         And the README.md MD5 calculated and the one we previously had must be equal

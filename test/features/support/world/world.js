@@ -8,6 +8,7 @@ class World {
     this.query = null;
     this.body = null;
     this.username = null;
+    this.repositoryName = null;
   }
 }
 

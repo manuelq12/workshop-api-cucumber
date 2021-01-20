@@ -47,7 +47,8 @@ Then('the response must contain repository property {string} {string}', function
   }
 });
 
-When('a request is used to download {string} repository', async function (repository) {
+When('a request is used to download {string} repository from this user', async function (repository) {
+  setAuthorizationHeaders(agent);
   this.response = await agent.get(`${urlBase}/repos/${this.username}/${repository}/zipball`);
 });
 
